@@ -1,0 +1,36 @@
+import turtle
+import random
+
+# 터틀 설정
+turtle.speed(0) # 그리기 속도 설정 (0: 가장 빠름)
+turtle.bgcolor("black") # 배경색 설정
+
+# 색상 리스트
+color = ["red", "blue", "green", "yellow", "orange", "purple", "white"]
+
+# 원을 그리고 무작위로 이동하는 함수
+def draw_random_cirle():
+    x = random.randint(-300, 300)
+    y = random.randint(-300, 300)
+    radius = random.randint(10, 100)
+    circle_color = random.choice(color)  # 'colors' -> 'color'로 수정
+    turtle.penup()
+    turtle.goto(x, y)
+    turtle.pendown()
+    turtle.color(circle_color)
+    turtle.begin_fill()
+    turtle.circle(radius)
+    turtle.end_fill()
+    turtle.penup()
+    turtle.home()
+
+
+# 원을 그리고 이동하는 횟수
+num_circles = 20
+
+# 원 그리기 및 이동 
+for _ in range(num_circles):
+    draw_random_cirle()
+
+# 클릭하면 종료
+turtle.exitonclick()
